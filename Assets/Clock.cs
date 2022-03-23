@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Clock : MonoBehaviour
 {
-    public Transform hourHand, minuteHand, secondHand;
+    [SerializeField] Transform hourHand, minuteHand, secondHand;
     [SerializeField] float hour, minute, second;
 
     void Update()
@@ -13,8 +13,8 @@ public class Clock : MonoBehaviour
         minute = System.DateTime.Now.Minute;
         second = System.DateTime.Now.Second;
 
-        hourHand.localRotation = Quaternion.Euler(hour / 12f * 360f, 0f, 0f);
-        minuteHand.localRotation = Quaternion.Euler(minute / 60f * 360f, 0f, 0f);
-        secondHand.localRotation = Quaternion.Euler(second / 60f * 360f, 0f, 0f);
+        hourHand.localRotation = Quaternion.Euler(hour / 12 * 360, 0, 0);
+        minuteHand.localRotation = Quaternion.Euler(minute / 60 * 360, 0, 0);
+        secondHand.localRotation = Quaternion.Euler(second / 60 * 360, 0, 0);
     }
 }
